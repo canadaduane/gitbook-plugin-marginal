@@ -1,0 +1,9 @@
+section.normal {
+	margin-left: 30%;
+}
+
+panel {
+	width: 20%;
+    position: fixed;
+    margin-left: -20%;
+}

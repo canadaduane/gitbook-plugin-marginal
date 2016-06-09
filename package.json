@@ -1,0 +1,20 @@
+{
+  "name": "gitbook-plugin-marginal",
+  "author": {
+    "name": "Duane Johnson"
+  },
+  "maintainers": [
+    {
+      "name": "Duane Johnson",
+      "email": "duane.johnson@gmail.com"
+    }
+  ],
+  "version": "0.1",
+  "description": "A gitbook plugin that creates a margin on the page for notes.",
+  "engines": {
+    "gitbook": ">2.x.x"
+  },
+  "homepage": "https://github.com/canadaduane/gitbook-plugin-marginal",
+  "license": "MIT",
+  "main": "index.js"
+}
