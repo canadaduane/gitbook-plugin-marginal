@@ -1,6 +1,6 @@
 # Marginal
 
-A gitbook plugin that creates a margin for notes and callouts on the right-hand side of each page. When notes are too large to fit within the height of its accompanying paragraph, the note is truncated and a button is made visible that allows the note to expand (along with the associated paragraph). Works best with Asciidoc.
+A gitbook plugin that creates a margin for notes and callouts on the left-hand side of each page. When notes are too large to fit within the height of its accompanying paragraph, the note is truncated and a button is made visible that allows the note to expand (along with the associated paragraph). Works best with Asciidoc.
 
 ## Installation
 

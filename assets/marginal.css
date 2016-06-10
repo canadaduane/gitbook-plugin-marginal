@@ -1,11 +1,11 @@
 section.normal {
-    margin-right: 300px;
+    margin-left: 300px;
 }
 
 .marginal {
     width: 300px;
     position: absolute;
-    right: 0px;
+    left: 0px;
     padding: 0em 10px;
     overflow: hidden;
     visibility: hidden;
