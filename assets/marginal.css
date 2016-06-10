@@ -1,9 +1,54 @@
 section.normal {
-	margin-left: 30%;
+    margin-right: 300px;
 }
 
-panel {
-	width: 20%;
-    position: fixed;
-    margin-left: -20%;
+.marginal {
+    width: 300px;
+    position: absolute;
+    right: 0px;
+    padding: 0em 10px;
+    overflow: hidden;
+}
+
+.marginal-expander-bg {
+    
+}
+.marginal-expander {
+    display: none;
+
+    /*background-color: white;*/
+    background: linear-gradient(to top, rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    width: 280px;
+    height: 36px;
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.marginal-expander-handle {
+    background-color: #DDD;
+    color: black;
+    width: 100px;
+    height: 22px;
+    margin: 0 90px;
+    border-radius: 4px;
+    line-height: 0px;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.2);
+    position: absolute;
+    bottom: 3px;
+}
+
+.marginal-expander-handle:focus {
+    outline: 0;
+    box-shadow: 0 0 0px 3px #008cff;
+}
+
+.marginal-overflow .marginal-expander {
+    display: block;
+}
+
+.marginal-focused .marginal-expander-handle {
+    background-color: #444;
+    color: white;
 }
