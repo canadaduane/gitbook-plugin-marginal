@@ -8,6 +8,7 @@ section.normal {
     right: 0px;
     padding: 0em 10px;
     overflow: hidden;
+    visibility: hidden;
 }
 
 .marginal-expander-bg {

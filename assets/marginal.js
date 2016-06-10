@@ -4,7 +4,7 @@ function marginalHasOverflow(element) {
 }
 
 function marginalFindParagraphForPanel(panel) {
-	var paragraphs = $(panel).nextAll(':not(:empty)');
+	var paragraphs = $(panel).parent().nextAll(':not(:empty)');
 	if (paragraphs.length > 0) {
 		return $(paragraphs[0]);
 	} else {
@@ -81,4 +81,6 @@ $(function() {
 	marginalFollowHeight();
 
 	marginalAddExpanderEvents();
+
+	$(".marginal").css('visibility', 'visible');
 });
