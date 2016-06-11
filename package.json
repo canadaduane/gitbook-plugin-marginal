@@ -9,7 +9,7 @@
       "email": "duane.johnson@gmail.com"
     }
   ],
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A gitbook plugin that creates a margin on the page for notes.",
   "engines": {
     "gitbook": ">2.x.x"

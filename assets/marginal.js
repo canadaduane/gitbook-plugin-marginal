@@ -45,7 +45,7 @@ function marginalAddExpanderEvents() {
 function marginalPanelOverflow() {
     var marginPanels = $(".marginal");
     marginPanels.each(function(i, panel) {
-        if (marginalHasOverflow(panel)) {
+        if (marginalHasOverflow(panel) && $(window).width() >= 800) {
             $(panel).addClass('marginal-overflow');
         } else {
             $(panel).removeClass('marginal-overflow');
@@ -57,9 +57,13 @@ function marginalPanelOverflow() {
 function marginalResizePanels() {
     var marginPanels = $(".marginal");
     marginPanels.each(function(i, panel) {
-        var paragraph = marginalFindParagraphForPanel(panel);
-        if (paragraph) {
-            $(panel).height(paragraph.height());
+        if ($(window).width() >= 800) {
+            var paragraph = marginalFindParagraphForPanel(panel);
+            if (paragraph) {
+                $(panel).height(paragraph.height());
+            }
+        } else {
+            $(panel).css('height', '');
         }
     });
 }

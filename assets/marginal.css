@@ -1,14 +1,16 @@
-section.normal {
-    margin-left: 300px;
-}
+@media only screen and (min-width: 800px) {
+    section.normal {
+        margin-left: 300px;
+    }
 
-.marginal {
-    width: 300px;
-    position: absolute;
-    left: 0px;
-    padding: 0em 10px;
-    overflow: hidden;
-    visibility: hidden;
+    .marginal {
+        width: 300px;
+        position: absolute;
+        left: 0px;
+        padding: 0em 10px;
+        overflow: hidden;
+        visibility: hidden;
+    }
 }
 
 .marginal-expander-bg {
