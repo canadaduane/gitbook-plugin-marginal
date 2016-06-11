@@ -6,7 +6,7 @@ module.exports = {
     },
 
     blocks: {
-        marginal: {
+        margin: {
             process: function(block) {
                 // "corresps" is the number of corresponding paragraphs that this marginal block is associated with
                 var corresps = block.args.length == 1 ? block.args[0] : 1;

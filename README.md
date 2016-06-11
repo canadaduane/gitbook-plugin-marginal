@@ -14,15 +14,14 @@ Add the following to your `book.json` configuration file:
 
 ## Usage
 
-This plugin provides a new block, the `marginal`:
-
+This plugin provides a new block, the `margin`:
 
 ```
-{% marginal %}
+{% margin %}
 ____
 Marginal callout
 ____
-{% endmarginal %}
+{% endmargin %}
 
 Regular paragraph goes here...
 ```
@@ -35,11 +34,11 @@ If you'd like to associate the marginal callout with more than one paragraph, te
 
 
 ```
-{% marginal 2 %}
+{% margin 2 %}
 ____
 Comment about first and second paragraph
 ____
-{% endmarginal %}
+{% endmargin %}
 
 First paragraph goes here...
 
