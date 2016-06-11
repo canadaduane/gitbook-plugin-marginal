@@ -13,9 +13,16 @@
     }
 }
 
-.marginal-expander-bg {
-    
+/* Don't show '+' sign for comments in the margins, because the javascript
+   that enables comments assumes the comment will occur on the right-hand
+   side of the text. It scrolls the content to the left and actually hides
+   the comment form altogether, rendering commenting impossible for marginal
+   content.
+*/
+.marginal .comments-section .comments-icon {
+    visibility: hidden;
 }
+
 .marginal-expander {
     display: none;
 
