@@ -3,13 +3,37 @@ function marginalHasOverflow(element) {
             element.offsetWidth < element.scrollWidth);
 }
 
-function marginalFindParagraphForPanel(panel) {
+function marginalFindParagraphsForPanel(panel) {
     var paragraphs = $(panel).parent().nextAll(':not(:empty)');
-    if (paragraphs.length > 0) {
-        return $(paragraphs[0]);
+    var corresps = parseInt($(panel).data("corresps"));
+    if (paragraphs.length > 0 && corresps > 0) {
+        var subset = paragraphs.slice(0, corresps);
+        return subset;
     } else {
-        return null;
+        return [];
     }
+}
+
+function marginalGetHeightForParagraphs(paragraphs) {
+    var top = null, bottom = null;
+    for (var i = 0; i < paragraphs.length; i++) {
+        var p = $(paragraphs[i]);
+        if (top === null || p.offset().top < top) {
+            top = p.offset().top;
+        }
+        if (bottom === null || p.offset().top + p.height() > bottom) {
+            bottom = p.offset().top + p.height();
+        }
+    }
+
+    var height;
+    if (top === null || bottom === null) {
+        height = 0;
+    } else {
+        height = bottom - top;
+    }
+    console.log("height for paragraphs", height, paragraphs);
+    return height;
 }
 
 function marginalAddExpanderEvents() {
@@ -27,15 +51,21 @@ function marginalAddExpanderEvents() {
         });
         $(panel).on("click", ".marginal-expander", function() {
             var panel = $(this).parent();
-            var paragraph = marginalFindParagraphForPanel(panel);
-            if (paragraph) {
+            var paragraphs = marginalFindParagraphsForPanel(panel);
+            var paragraphsHeight = marginalGetHeightForParagraphs(paragraphs);
+            if (paragraphs.length > 0) {
                 panel.removeClass('marginal-overflow');
+                var newPanelHeight = panel[0].scrollHeight;
 
-                var newHeight = panel[0].scrollHeight;
-                // paragraph.height(newHeight);
-                // panel.height(newHeight);
-                paragraph.animate({height: newHeight}, 200);
-                panel.animate({height: newHeight}, 200);
+                // Set bottom paragraph height
+                var paragraph = $(paragraphs[paragraphs.length-1]);
+                var newParagraphHeight = newPanelHeight - (paragraphsHeight - paragraph.height());
+                if (newParagraphHeight > paragraph.height()) {
+                    paragraph.animate({height: newParagraphHeight}, 200);
+                }
+
+                // Set panel height
+                panel.animate({height: newPanelHeight}, 200);
             }
         });
     });
@@ -58,9 +88,10 @@ function marginalResizePanels() {
     var marginPanels = $(".marginal");
     marginPanels.each(function(i, panel) {
         if ($(window).width() >= 800) {
-            var paragraph = marginalFindParagraphForPanel(panel);
-            if (paragraph) {
-                $(panel).height(paragraph.height());
+            var paragraphs = marginalFindParagraphsForPanel(panel);
+            var height = marginalGetHeightForParagraphs(paragraphs);
+            if (height > 0) {
+                $(panel).height(height);
             }
         } else {
             $(panel).css('height', '');
