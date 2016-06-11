@@ -20,9 +20,7 @@ This plugin provides a new block, the `marginal`:
 ```
 {% marginal %}
 ____
-*Quote* I, the writer, was born of Presbyterian parents...
-
-https://archive.org/details/cihm_62453[The Rights of Christ] , 1815, p. 1
+Marginal callout
 ____
 {% endmarginal %}
 
@@ -31,4 +29,21 @@ Regular paragraph goes here...
 
 Your callouts should now be marginalized :) Note that there is a blank line between the `{% endmarginal %}` and the `Regular paragraph goes here...`. Without the space, it won't know which paragraph to associate with.
 
-Note: the above "Quote" syntax comes from the [callouts](https://github.com/gubler/gitbook-plugin-callouts) gitbook plugin and can be used in conjunction with `gitbook-plugin-marginal`.
+### Optional: Number of Paragraphs
+
+If you'd like to associate the marginal callout with more than one paragraph, tell `marginal` how many paragraphs:
+
+
+```
+{% marginal 2 %}
+____
+Comment about first and second paragraph
+____
+{% endmarginal %}
+
+First paragraph goes here...
+
+Second paragraph goes here...
+```
+
+Now the "Comment" will be associated with both the "First" and "Second" paragraphs (and thus, it will have more room to work with before the user must click the expander button on the marginal callout).
